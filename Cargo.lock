@@ -3,5 +3,14 @@
 version = 4
 
 [[package]]
+name = "dyn_ord"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9d54c900bcd6e44485ab0d733a93ef8df8209d2c1306e3dcad8b5926aa743a2c"
+
+[[package]]
 name = "gof"
 version = "0.1.0"
+dependencies = [
+ "dyn_ord",
+]

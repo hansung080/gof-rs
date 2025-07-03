@@ -29,4 +29,4 @@ Design Patterns written in Rust
 - [ ] State
 - [ ] Strategy
 - [ ] Template Method
-- [ ] Visitor
+- [x] Visitor

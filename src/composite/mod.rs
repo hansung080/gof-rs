@@ -1,4 +1,4 @@
-pub mod exam;
+pub mod exam1;
 
 use std::result;
 use crate::utils::iter::NoneIterator;
@@ -11,7 +11,7 @@ pub type Id = u64;
 pub trait Component {
     // Basic Operations
     fn id(&self) -> Id;
-    fn operation(&self) -> Result<()>;
+    fn operation(&self);
 
     // Collection Operations
     fn add(&mut self, #[allow(unused)] child: Box<dyn Component>) -> Result<()> {
@@ -42,9 +42,7 @@ impl Component for Leaf {
         self.id
     }
 
-    fn operation(&self) -> Result<()> {
-        Ok(())
-    }
+    fn operation(&self) {}
 }
 
 pub struct Composite {
@@ -66,11 +64,10 @@ impl Component for Composite {
         self.id
     }
 
-    fn operation(&self) -> Result<()> {
+    fn operation(&self) {
         for child in self.children.iter() {
-            child.operation()?
+            child.operation()
         }
-        Ok(())
     }
 
     fn add(&mut self, child: Box<dyn Component>) -> Result<()> {

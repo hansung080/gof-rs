@@ -88,18 +88,18 @@ impl Equipment for Chassis {
     }
 
     fn power(&self) -> Watt {
-        let sum = self.parts.iter().fold(0, |acc, part| acc + part.power());
-        sum + self.power
+        let total = self.parts.iter().fold(0, |acc, part| acc + part.power());
+        total + self.power
     }
 
     fn net_price(&self) -> Currency {
-        let sum = self.parts.iter().fold(0, |acc, part| acc + part.net_price());
-        sum + self.net_price
+        let total = self.parts.iter().fold(0, |acc, part| acc + part.net_price());
+        total + self.net_price
     }
 
     fn discount_price(&self) -> Currency {
-        let sum = self.parts.iter().fold(0, |acc, part| acc + part.discount_price());
-        sum + self.discount_price
+        let total = self.parts.iter().fold(0, |acc, part| acc + part.discount_price());
+        total + self.discount_price
     }
 
     fn add(&mut self, part: Box<dyn Equipment>) -> Result<()> {
@@ -128,7 +128,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn composite_exam() {
+    fn composite_exam1() {
         let mut chassis1 = Chassis::new("Chassis 1", 10, 100, 90);
         chassis1.add(Box::new(FloppyDisk::new("Floppy 1", 1, 10, 9))).unwrap();
 
