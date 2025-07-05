@@ -156,7 +156,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn composite_exam1() {
+    fn visitor_exam1() {
         let mut equipments: Vec<Box<dyn Equipment>> = vec![
             Box::new(FloppyDisk {
                 name: "Floppy".to_string(),

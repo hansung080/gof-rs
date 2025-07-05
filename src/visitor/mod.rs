@@ -1,5 +1,6 @@
 pub mod exam1;
 pub mod exam2;
+pub mod exam3;
 
 pub trait Element {
     // NOTE: If a method has generic type parameters or impl Trait types,
